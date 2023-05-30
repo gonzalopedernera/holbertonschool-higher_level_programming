@@ -4,7 +4,7 @@ number = random.randint(-10000, 10000)
 if (number > 0):
     ld = number % 10
 elif (number < 0):
-    ld = (number * -1) % 10
+    ld = ((number * -1) % 10) * -1
 
 print(f"Last digit of {number} is {ld} ", end="")
 
@@ -16,6 +16,6 @@ elif (ld < 6):
     print("and is less than 6 ", end="")
 
 if (ld != 0):
-    print("and is not 0", end="")
+    print("and not 0", end="")
 
 print("")
