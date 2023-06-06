@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 def no_c(my_string):
-    if my_string.count("c") == true:
-        for i in range(len(my_string)):
-            if my_string[i] == "c":
-                my_string.pop(i)
+    new_str = ""
+    for i in my_string:
+        if i != "c" and i != "C":
+            new_str += i
+    return new_str
