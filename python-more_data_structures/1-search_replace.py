@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 def search_replace(my_list, search, replace):
     newlist = []
-    newlist.extend(my_list)
-    idx = newlist.index(search)
-    newlist.pop(idx)
-    newlist.insert(idx, replace)
+    for i in my_list:
+        if i == search:
+            newlist.append(replace)
+        else:
+            newlist.append(i)
     return newlist
