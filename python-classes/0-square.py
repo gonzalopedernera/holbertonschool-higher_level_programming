@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-""" This script creates a new empty class named Square.
-    Args: None
-
-    Attributes: None
-"""
+""" This script creates a new empty class named Square."""
 
 
 class Square:
+    """ Placeholder for square initialization  """
     pass
