@@ -1,4 +1,6 @@
 #!/usr/bin/python3
-# "This scripts creates a new empty class called 'Square'.
+"""This script creates a new empty class names Square"""
+
+
 class Square:
     pass
