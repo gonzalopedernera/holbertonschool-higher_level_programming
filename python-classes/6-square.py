@@ -10,7 +10,13 @@ class Square:
             position (tuple): position of the square
      """
     def __init__(self, size=0, position=(0, 0)):
+        if type(size) is not int:
+            raise TypeError("size must be an integer")
+        if size < 0:
+            raise ValueError("size must be >= 0")
         self.__size = size
+        if type(position) is not tuple or position[0] < 0 or position[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = position
 
     """ Retrieves the value of size """
@@ -26,11 +32,9 @@ class Square:
     @size.setter
     def size(self, value):
         if type(value) is not int:
-            print("size must be an integer", end="")
-            raise TypeError
+            raise TypeError("size must be an integer")
         if value < 0:
-            print("size must be >= 0", end="")
-            raise ValueError
+            raise ValueError("size must be >= 0")
         self.__size = value
 
     """ Retrieves the positioning of the square """
@@ -45,8 +49,7 @@ class Square:
     @position.setter
     def postion(self, value):
         if type(position) is not tuple or position[0] < 0 or position[1] < 0:
-            print("position must be a tuple of 2 positive integers")
-            raise TypeError
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
     """ Method that calculates the area of a square object  """
