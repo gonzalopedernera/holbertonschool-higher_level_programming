@@ -1,6 +1,9 @@
 #!/usr/bin/python3
+""" Adds two numbers and converts the result to int """
+
+
 def add_integer(a, b=98):
-    """ Adds two digits and converts the result to ints
+    """ Adds two numbers and converts the result to int
     Args:
         a: a number
         b: a number
