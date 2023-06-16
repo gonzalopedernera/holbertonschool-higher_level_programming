@@ -10,6 +10,14 @@ am?
 test
 >>> text_indentation("Hello I am test")
 Hello I am test
+>>> text_indentation("Hello.   I:   am?   test")
+Hello.
+<BLANKLINE>
+I:
+<BLANKLINE>
+am?
+<BLANKLINE>
+test
 >>> text_indentation(None)
 Traceback (most recent call last):
 ...
