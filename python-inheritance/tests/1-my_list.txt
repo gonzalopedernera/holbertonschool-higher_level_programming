@@ -1,0 +1,31 @@
+>>> MyList = __import__('1-my_list').MyList
+
+>>> myl = MyList()
+>>> myl.append(1)
+>>> myl.print_sorted()
+[1]
+>>> myl.append(3)
+>>> myl.append(2)
+>>> myl.print_sorted()
+[1, 2, 3]
+>>> myl.append("si")
+>>> myl.print_sorted()
+Traceback (most recent call last):
+...
+TypeError: '<' not supported between instances of 'str' and 'int'
+>>> myl.remove("si")
+>>> myl.append(2.5)
+>>> myl.print_sorted()
+[1, 2, 2.5, 3]
+>>> myl.append(-5)
+>>> myl.print_sorted()
+[-5, 1, 2, 2.5, 3]
+>>> myl.append(2 + 2)
+>>> myl.print_sorted()
+[-5, 1, 2, 2.5, 3, 4]
+>>> myl.append(float('inf'))
+>>> myl.print_sorted()
+[-5, 1, 2, 2.5, 3, 4, inf]
+>>> myl.append(float('NaN'))
+>>> myl.print_sorted()
+[-5, 1, 2, 2.5, 3, 4, inf, nan]
