@@ -33,7 +33,6 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 >>> myl.print_sorted()
 [-5, 1, 2, 2.5, 3, 4, nan]
 >>> myl.clear()
-
 >>> myl.append([1, 2, 3])
 >>> myl.print_sorted()
 [[1, 2, 3]]
@@ -51,3 +50,7 @@ TypeError: '<' not supported between instances of 'int' and 'list'
 >>> myl.append(float('NaN'))
 >>> myl.print_sorted()
 [-3, -2, -1, nan]
+>>> myl.print_sorted(1)
+Traceback (most recent call last):
+...
+TypeError: print_sorted() takes 1 positional argument but 2 were given
