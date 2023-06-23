@@ -9,7 +9,7 @@ def pascal_triangle(n):
     Args:
         n: an int
     """
-    p_t = [[]]
+    p_t = []
     if n <= 0:
         return p_t
     else:
