@@ -25,3 +25,4 @@ TypeError: integer_validator() missing 1 required positional argument: 'value'
 Traceback (most recent call last):
 ...
 TypeError: integer_validator() takes 3 positional arguments but 4 were given
+>>> bg.integer_validator(69, 69)
