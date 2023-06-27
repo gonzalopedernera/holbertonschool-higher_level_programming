@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Importing Base class"""
+
+
 from models.base import Base
 """New class Rectangle inheriting from Base"""
 
