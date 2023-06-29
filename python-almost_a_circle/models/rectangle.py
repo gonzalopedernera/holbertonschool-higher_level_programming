@@ -131,3 +131,19 @@ class Rectangle(Base):
                 self.__width,
                 self.__height
         )
+
+    def update(self, *args):
+        """Updates a Rectangle object attributes
+        Args:
+            *args: argument vector
+        """
+        arg = list(args)
+        self.id = arg[0]
+        if len(arg) >= 2:
+            self.__width = arg[1]
+        if len(arg) >= 3:
+            self.__height = arg[2]
+        if len(arg) >= 4:
+            self.__x = arg[3]
+        if len(arg) >= 5:
+            self.__y = arg[4]
