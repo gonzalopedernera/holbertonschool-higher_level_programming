@@ -126,10 +126,10 @@ class Rectangle(Base):
         """Impletementation of __str__ method"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
                 self.id,
-                self.__x,
-                self.__y,
-                self.__width,
-                self.__height
+                self.x,
+                self.y,
+                self.width,
+                self.height
         )
 
     def update(self, *args, **kwargs):
@@ -161,3 +161,13 @@ class Rectangle(Base):
                     self.__x = value
                 if key == "y":
                     self.__y = value
+
+    def to_dictionary(self):
+        """returns the dictionary representation of a Rectangle"""
+        obj_dict = {}
+        obj_dict["id"] = self.id
+        obj_dict["width"] = self.__width
+        obj_dict["height"] = self.__height
+        obj_dict["x"] = self.__x
+        obj_dict["y"] = self.__y
+        return obj_dict
