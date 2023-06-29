@@ -25,4 +25,7 @@ class Base:
         Args:
             list_directories: a list of dictionaries
         """
-        return json.dumps(list_dictionaries)
+        if list_dictionaries is None:
+            return "[]"
+        else:
+            return json.dumps(list_dictionaries)
