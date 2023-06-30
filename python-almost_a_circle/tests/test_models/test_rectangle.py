@@ -164,6 +164,11 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(print_op, "###\n  ###")
 
+    def test_display_many_args(self):
+        obj = Rectangle(1, 2, 3, 4, 5)
+        with self.assertRaises(TypeError):
+            obj.display(12)
+
     def test_rectangle_print(self):
         """Test for __str__ method"""
         obj = Rectangle(1, 2, 3, 4, 5)
