@@ -44,3 +44,13 @@ class Base:
                 for i in list_objs:
                     list_dict.append(i.to_dictionary())
                 f.write(Base.to_json_string(list_dict))
+
+    def from_json_string(json_string):
+        """Returns the list of the JSON string representation json_string
+        Args:
+            json_string: a string representation of a list of directories
+        """
+        if json_string is None:
+            return []
+        else:
+            return json.loads(json_string)
