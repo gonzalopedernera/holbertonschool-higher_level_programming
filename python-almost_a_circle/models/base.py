@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Importing JSON module"""
 import json
-
+import os.path
 """New class Base"""
 
 
@@ -69,3 +69,19 @@ class Base:
         dummy.update(**dictionary)
 
         return dummy
+
+    """Returns a list of instances from a <Class name>.json file"""
+    @classmethod
+    def load_from_file(cls):
+        filename = cls.__name__ + '.json'
+
+        if os.path.isfile('./' + filename):
+            with open(filename, 'r', encoding="utf-8") as f:
+                obj_dict = cls.from_json_string(f.read())
+                obj_list = []
+                for i in obj_dict:
+                    obj = cls.create(**i)
+                    obj_list.append(obj)
+                return obj_list
+        else:
+            return []
