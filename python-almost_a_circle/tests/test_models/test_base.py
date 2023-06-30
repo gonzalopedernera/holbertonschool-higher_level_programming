@@ -149,6 +149,21 @@ class TestBaseClass(unittest.TestCase):
             obj_2_dict = obj_2.to_dictionary()
             obj = Square.create(**obj_1_dict, **obj_2_dict)
 
+    def test_base_load_from_file(self):
+        """Test for load_from_file method"""
+        obj_1 = Rectangle(1, 2, 3, 4, 5)
+        Rectangle.save_to_file([obj_1])
+        obj_list = Rectangle.load_from_file()
+        self.assertEqual(obj_list[0].id, 5)
+        self.assertEqual(obj_list[0].width, 1)
+        self.assertEqual(obj_list[0].height, 2)
+        self.assertEqual(obj_list[0].x, 3)
+        self.assertEqual(obj_list[0].y, 4)
+
+    def test_base_load_from_file_no_file(self):
+        obj_list = Base.load_from_file()
+        self.assertEqual(obj_list, [])
+
 
 if __name__ == '__main__':
     unittest.main()
