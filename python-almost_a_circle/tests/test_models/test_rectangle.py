@@ -140,6 +140,30 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             obj.area(1)
 
+    def test_rectangle_display(self):
+        """Test display method"""
+        obj = Rectangle(3, 2, 0, 0, 5)
+        save_op = StringIO()
+        sys.stdout = save_op
+
+        obj.display()
+        print_op = save_op.getvalue().strip()
+        sys.stdout = sys.__stdout__
+
+        self.assertEqual(print_op, "###\n###")
+
+    def test_rectangle_displat_position(self):
+        """Test display method with x > 0 and y > 0"""
+        obj = Rectangle(3, 2, 2, 2, 5)
+        save_op = StringIO()
+        sys.stdout = save_op
+
+        obj.display()
+        print_op = save_op.getvalue().strip()
+        sys.stdout = sys.__stdout__
+
+        self.assertEqual(print_op, "###\n  ###")
+
     def test_rectangle_print(self):
         """Test for __str__ method"""
         obj = Rectangle(1, 2, 3, 4, 5)
