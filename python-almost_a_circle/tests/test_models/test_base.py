@@ -5,6 +5,7 @@
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
+from models.square import Square
 from io import StringIO
 import sys
 """Class for base testing"""
@@ -115,6 +116,38 @@ class TestBaseClass(unittest.TestCase):
             json_list = Rectangle.to_json_string(list_input, 1)
             json_list = Rectangle.to_json_string(1)
             json_list = Rectangle.to_json_string()
+
+    def test_base_create_rectangle(self):
+        """Test for create method"""
+        obj_1 = Rectangle(1, 2, 3, 4, 5)
+        obj_1_dict = obj_1.to_dictionary()
+        obj_2 = Rectangle.create(**obj_1_dict)
+        self.assertEqual(obj_2.id, 5)
+        self.assertEqual(obj_2.width, 1)
+        self.assertEqual(obj_2.height, 2)
+        self.assertEqual(obj_2.x, 3)
+        self.assertEqual(obj_2.y, 4)
+
+    def test_base_create_square(self):
+        obj_1 = Square(2, 3, 4, 5)
+        obj_1_dict = obj_1.to_dictionary()
+        obj_2 = Square.create(**obj_1_dict)
+        self.assertEqual(obj_2.id, 5)
+        self.assertEqual(obj_2.width, 2)
+        self.assertEqual(obj_2.height, 2)
+        self.assertEqual(obj_2.x, 3)
+        self.assertEqual(obj_2.y, 4)
+
+    def test_base_create_error(self):
+        """Test for create method errors"""
+        with self.assertRaises(TypeError):
+            obj = Square.create("Si")
+            obj = Rectangle.create("Si")
+            obj_1 = Square(2, 3, 4, 5)
+            obj_1_dict = obj_1.to_dictionary()
+            obj_2 = Square(4, 6, 8, 10)
+            obj_2_dict = obj_2.to_dictionary()
+            obj = Square.create(**obj_1_dict, **obj_2_dict)
 
 
 if __name__ == '__main__':
