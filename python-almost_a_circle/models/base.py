@@ -54,3 +54,12 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        dummy = cls(1, 2, 3, 4)
+        
+        up_dict = dict(dictionary)
+        dummy.update(up_dict)
+    
+        return dummy
