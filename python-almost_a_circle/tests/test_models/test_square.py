@@ -109,6 +109,35 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             obj.area(1)
 
+    def test_square_display(self):
+        """Test display method"""
+        obj = Square(3, 0, 0, 5)
+        save_op = StringIO()
+        sys.stdout = save_op
+
+        obj.display()
+        print_op = save_op.getvalue().strip()
+        sys.stdout = sys.__stdout__
+
+        self.assertEqual(print_op, "###\n###\n###")
+
+    def test_square_display_position(self):
+        """Test display method with x > 0 and y > 0"""
+        obj = Square(3, 2, 2, 5)
+        save_op = StringIO()
+        sys.stdout = save_op
+
+        obj.display()
+        print_op = save_op.getvalue().strip()
+        sys.stdout = sys.__stdout__
+
+        self.assertEqual(print_op, "###\n  ###\n  ###")
+
+    def test_square_display_many_args(self):
+        obj = Square(1, 2, 3, 4)
+        with self.assertRaises(TypeError):
+            obj.display(12)
+
     def test_square_print(self):
         """Test for square __str__ method"""
         obj = Square(2, 3, 4, 5)
